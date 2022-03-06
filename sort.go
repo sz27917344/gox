@@ -1,4 +1,4 @@
-package stream
+package gox
 
 // 排序相关类
 type sortByFun[T any] struct {
