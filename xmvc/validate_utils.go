@@ -18,10 +18,19 @@ func MvcValidate(bean interface{}) {
 		if mvc == "" {
 			switch field.Type().Kind() {
 			case reflect.Int64:
+			case reflect.Int32:
+			case reflect.Int16:
+			case reflect.Int8:
+			case reflect.Int:
 				if field.Int() == 0 {
 					panic(xerr.NewCodeMessage(xres.ParamError, typeOfType.Field(i).Name+"不能为空"))
 				}
 				break
+			case reflect.Float64:
+			case reflect.Float32:
+				if field.Float() == 0 {
+					panic(xerr.NewCodeMessage(xres.ParamError, typeOfType.Field(i).Name+"不能为空"))
+				}
 			case reflect.String:
 				if strings.TrimSpace(field.String()) == "" {
 					panic(xerr.NewCodeMessage(xres.ParamError, typeOfType.Field(i).Name+"不能为空"))
