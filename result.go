@@ -3,7 +3,7 @@ package gox
 type Result[T any] struct {
 	RspCd  string `json:"rspCd"`
 	RspInf string `json:"rspInf"`
-	Data   T      `json:"Elements"`
+	Data   T      `json:"data"`
 }
 
 func OkResult[T any](data T) *Result[T] {
