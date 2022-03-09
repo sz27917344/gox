@@ -1,4 +1,4 @@
-package gox
+package xmvc
 
 type Result[T any] struct {
 	RspCd  string `json:"rspCd"`

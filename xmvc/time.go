@@ -1,4 +1,4 @@
-package gox
+package xmvc
 
 import "time"
 

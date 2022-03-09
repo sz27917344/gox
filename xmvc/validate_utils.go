@@ -1,7 +1,9 @@
-package gox
+package xmvc
 
 import (
 	"fmt"
+	"github.com/sz27917344/gox/xerr"
+	"github.com/sz27917344/gox/xres"
 	"reflect"
 	"strings"
 )
@@ -17,12 +19,12 @@ func MvcValidate(bean interface{}) {
 			switch field.Type().Kind() {
 			case reflect.Int64:
 				if field.Int() == 0 {
-					panic(NewCodeMessage(ParamError, typeOfType.Field(i).Name+"不能为空"))
+					panic(xerr.NewCodeMessage(xres.ParamError, typeOfType.Field(i).Name+"不能为空"))
 				}
 				break
 			case reflect.String:
 				if strings.TrimSpace(field.String()) == "" {
-					panic(NewCodeMessage(ParamError, typeOfType.Field(i).Name+"不能为空"))
+					panic(xerr.NewCodeMessage(xres.ParamError, typeOfType.Field(i).Name+"不能为空"))
 				}
 			}
 			fmt.Printf("%d. %s %s = %v \n", i, typeOfType.Field(i).Name, field.Type(), field.Interface())

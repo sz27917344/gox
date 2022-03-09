@@ -1,4 +1,4 @@
-package gox
+package xmvc
 
 type PageInfo[T any] struct {
 	Total int32 `json:"total"`
