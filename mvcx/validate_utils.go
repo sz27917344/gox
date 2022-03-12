@@ -1,8 +1,8 @@
-package xmvc
+package mvcx
 
 import (
-	"github.com/sz27917344/gox/xerr"
-	"github.com/sz27917344/gox/xres"
+	"github.com/sz27917344/gox/errx"
+	"github.com/sz27917344/gox/resx"
 	"reflect"
 )
 
@@ -19,7 +19,7 @@ func MvcValidate(bean interface{}) {
 		if len(mvc) == 0 {
 			// 字段值为空
 			if isBlank(field) {
-				panic(xerr.NewCodeMessage(xres.ParamError, typeOfType.Field(i).Name+"不能为空"))
+				panic(errx.NewCodeMessage(resx.ParamError, typeOfType.Field(i).Name+"不能为空"))
 			}
 		}
 	}

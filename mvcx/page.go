@@ -1,4 +1,4 @@
-package xmvc
+package mvcx
 
 type PageInfo[T any] struct {
 	Total int32 `json:"total"`

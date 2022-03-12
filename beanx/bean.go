@@ -1,9 +1,9 @@
-package xbean
+package beanx
 
 import (
-	"github.com/sz27917344/gox/xerr"
-	"github.com/sz27917344/gox/xmvc"
-	"github.com/sz27917344/gox/xres"
+	"github.com/sz27917344/gox/errx"
+	"github.com/sz27917344/gox/mvcx"
+	"github.com/sz27917344/gox/resx"
 	"reflect"
 )
 
@@ -13,14 +13,14 @@ func Map[T any](src interface{}, dst *T) *T {
 	srcType, srcValue := reflect.TypeOf(src), reflect.ValueOf(src)
 	// dst必须结构体指针类型
 	if dstType.Kind() != reflect.Ptr || dstType.Elem().Kind() != reflect.Struct {
-		panic(xerr.NewCode(xres.CopyFailed))
+		panic(errx.NewCode(resx.CopyFailed))
 	}
 	// src必须为结构体或者结构体指针
 	if srcType.Kind() == reflect.Ptr {
 		srcType, srcValue = srcType.Elem(), srcValue.Elem()
 	}
 	if srcType.Kind() != reflect.Struct {
-		panic(xerr.NewCode(xres.CopyFailed))
+		panic(errx.NewCode(resx.CopyFailed))
 	}
 	// 取具体内容
 	dstType, dstValue = dstType.Elem(), dstValue.Elem()
@@ -54,7 +54,7 @@ func MapSlice[S any, T any](srcSlice []S, dst T) []*T {
 }
 
 // MapPage 对分页结果进行类型映射
-func MapPage[S any, T any](srcPage xmvc.PageInfo[S], dst T) (targetPage xmvc.PageInfo[T]) {
+func MapPage[S any, T any](srcPage mvcx.PageInfo[S], dst T) (targetPage mvcx.PageInfo[T]) {
 	// 设置最大值
 	targetPage.Total = srcPage.Total
 	// 对列表进行映射

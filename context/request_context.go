@@ -1,7 +1,7 @@
-package xctx
+package context
 
 import (
-	"github.com/sz27917344/gox/xtrace"
+	"github.com/sz27917344/gox/tracex"
 	"time"
 )
 
@@ -13,5 +13,5 @@ type RequestContext struct {
 
 // NewRequestContext 新的RequestContext实例
 func NewRequestContext() *RequestContext {
-	return &RequestContext{TraceId: xtrace.New()}
+	return &RequestContext{TraceId: tracex.New()}
 }

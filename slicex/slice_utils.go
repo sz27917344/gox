@@ -1,4 +1,4 @@
-package xslice
+package slicex
 
 // IsNotBlank 切片非空
 func IsNotBlank(slice []interface{}) bool {

@@ -1,4 +1,4 @@
-package xstream
+package streamx
 
 import (
 	"sort"

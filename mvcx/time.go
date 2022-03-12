@@ -1,4 +1,4 @@
-package xmvc
+package mvcx
 
 import "time"
 

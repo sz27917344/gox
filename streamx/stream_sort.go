@@ -1,4 +1,4 @@
-package xstream
+package streamx
 
 // 排序相关类
 type sortByFun[T any] struct {

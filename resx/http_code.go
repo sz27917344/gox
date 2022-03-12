@@ -1,4 +1,4 @@
-package xres
+package resx
 
 type HttpCode struct {
 	Code    string

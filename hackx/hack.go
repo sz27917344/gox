@@ -1,4 +1,4 @@
-package xhack
+package hackx
 
 import (
 	"reflect"

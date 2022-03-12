@@ -1,6 +1,6 @@
-package xerr
+package errx
 
-import "github.com/sz27917344/gox/xres"
+import "github.com/sz27917344/gox/resx"
 
 type HttpError struct {
 	Code    string
@@ -8,19 +8,19 @@ type HttpError struct {
 	Err     error
 }
 
-func NewCode(httpCode xres.HttpCode) error {
+func NewCode(httpCode resx.HttpCode) error {
 	return &HttpError{Code: httpCode.Code, Message: httpCode.Message}
 }
 
-func NewCodeMessage(httpCode xres.HttpCode, message string) error {
+func NewCodeMessage(httpCode resx.HttpCode, message string) error {
 	return &HttpError{Code: httpCode.Code, Message: message}
 }
 
-func NewError(httpCode xres.HttpCode, err error) error {
+func NewError(httpCode resx.HttpCode, err error) error {
 	return &HttpError{Code: httpCode.Code, Err: err}
 }
 
-func NewErrorMessage(httpCode xres.HttpCode, err error, message string) error {
+func NewErrorMessage(httpCode resx.HttpCode, err error, message string) error {
 	return &HttpError{Code: httpCode.Code, Err: err, Message: message}
 }
 
