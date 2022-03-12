@@ -3,6 +3,7 @@ package xmvc
 type Result[T any] struct {
 	RspCd  string `json:"rspCd"`
 	RspInf string `json:"rspInf"`
+	Error  string `json:"error"`
 	Data   T      `json:"data"`
 }
 
