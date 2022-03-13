@@ -80,10 +80,10 @@ func Error(ctx *context.RequestContext, message string, a ...any) {
 	}
 }
 
-func SetZapLog(logger *zap.Logger) {
-	zapLogger = logger
-}
-
 func ErrorWithoutCtx(message string, a ...any) {
 	Error(nil, message, a...)
+}
+
+func SetZapLog(logger *zap.Logger) {
+	zapLogger = logger
 }

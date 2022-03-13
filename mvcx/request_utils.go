@@ -20,7 +20,15 @@ func GetRequestCtx(ctx iris.Context) *context.RequestContext {
 	return nil
 }
 
+// ParseRequest 解析请求参数，同时完成校验
 func ParseRequest[T any](ctx iris.Context, t T) T {
+	request := ParseRequestOnly(ctx, t)
+	// 对请求参数进行校验
+	MvcValidate(request)
+	return request
+}
+
+func ParseRequestOnly[T any](ctx iris.Context, t T) T {
 	rawData, err := ctx.GetBody()
 	if err != nil {
 		panic(errx.NewErrorMessage(resx.ParamError, err, "请求参数解析错误"))
